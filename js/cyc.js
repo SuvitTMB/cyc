@@ -1,19 +1,34 @@
 var dbCYCDocument = "";
+var dbCYCLog = "";
+var EidCYCDocument = "";
+var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = today.getFullYear()+543;
+today = dd + '/' + mm + '/' + yyyy;
 
 
 
 $(document).ready(function () {
+  //alert(sessionStorage.getItem("LineID"));
   Connect_DB();
 });
  
 
 function Connect_DB() {
-  var _0x8a2ed0=_0x510b;function _0x510b(_0x3e16a0,_0x240e7c){var _0x45c299=_0x45c2();return _0x510b=function(_0x510bcb,_0x2ce06d){_0x510bcb=_0x510bcb-0x1d4;var _0x491bb8=_0x45c299[_0x510bcb];return _0x491bb8;},_0x510b(_0x3e16a0,_0x240e7c);}(function(_0x4b5adf,_0x12ec89){var _0x90f58f=_0x510b,_0x1d6137=_0x4b5adf();while(!![]){try{var _0x14b269=parseInt(_0x90f58f(0x1d7))/0x1+parseInt(_0x90f58f(0x1dc))/0x2*(parseInt(_0x90f58f(0x1de))/0x3)+-parseInt(_0x90f58f(0x1db))/0x4*(-parseInt(_0x90f58f(0x1d6))/0x5)+-parseInt(_0x90f58f(0x1e0))/0x6+-parseInt(_0x90f58f(0x1d9))/0x7+parseInt(_0x90f58f(0x1d4))/0x8+parseInt(_0x90f58f(0x1e1))/0x9*(-parseInt(_0x90f58f(0x1dd))/0xa);if(_0x14b269===_0x12ec89)break;else _0x1d6137['push'](_0x1d6137['shift']());}catch(_0x3b57b9){_0x1d6137['push'](_0x1d6137['shift']());}}}(_0x45c2,0xe91ee));var firebaseConfig={'apiKey':'AIzaSyDfTJJ425U4OY0xac6jdhtSxDeuJ-OF-lE','authDomain':_0x8a2ed0(0x1df),'projectId':'retailproject-6f4fc','storageBucket':'retailproject-6f4fc.appspot.com','messagingSenderId':_0x8a2ed0(0x1d8),'appId':_0x8a2ed0(0x1da),'measurementId':_0x8a2ed0(0x1d5)};function _0x45c2(){var _0x316295=['retailproject-6f4fc.firebaseapp.com','5110332PCzTjC','153geXzuh','6682896xHuylj','G-9SKTRHHSW9','252995JPPNQp','1744759ldnBnc','653667385625','4188331dEARNq','1:653667385625:web:a5aed08500de80839f0588','12qNvHsm','2hRUzpB','1165510bmGOXI','4963098zwWjCn'];_0x45c2=function(){return _0x316295;};return _0x45c2();}  firebase.initializeApp(firebaseConfig);
+  var firebaseConfig = {
+    apiKey: "AIzaSyDfTJJ425U4OY0xac6jdhtSxDeuJ-OF-lE",
+    authDomain: "retailproject-6f4fc.firebaseapp.com",
+    projectId: "retailproject-6f4fc",
+    storageBucket: "retailproject-6f4fc.appspot.com",
+    messagingSenderId: "653667385625",
+    appId: "1:653667385625:web:a5aed08500de80839f0588",
+    measurementId: "G-9SKTRHHSW9"
+  };
+  firebase.initializeApp(firebaseConfig);
   dbCYCDocument = firebase.firestore().collection("CYCDocument");
+  dbCYCLog = firebase.firestore().collection("CYCLog");
 }
-
-
-
 
 
 function OpenBook(x) {
@@ -34,27 +49,90 @@ function OpenBook(x) {
   .get().then((snapshot)=> {
   snapshot.forEach(doc=> {
     //EidStockList = doc.id;
-    str += '<div class="box-listuser">'+ doc.data().CYCName +'</div>';
+    str += '<div class="box-listuser" onclick="OpenLink(\''+ doc.id +'\')">'+ doc.data().CYCName +'</div>';
     });
     $("#DisplayList").html(str);  
   });
-
-/*
-  var str = "";
-  str += '<div class="header-line" style="margin-top:10px; margin-bottom: 20px; color:#0056ff;font-weight: 600;font-size: 13px;">'+ sHead +'</div>';
-  str += '<div class="box-listuser">CYC Normal</div>';
-  str += '<div class="box-listuser">CYC โครงการพิเศษ</div>';
-  str += '<div class="box-listuser">CYC Normal</div>';
-  str += '<div class="box-listuser">CYC Normal</div>';
-  str += '<div class="box-listuser">CYC Normal</div>';
-  str += '<div class="box-listuser">CYC Normal</div>';
-  $("#DisplayList").html(str);  
-*/
-
   document.getElementById('id01').style.display='block';
 }
 
 
+var sCYCRead = 0;
+var sCYCgroup = "";
+var sCYCName = "";
+var sCYCLinkURL = "";
+function OpenLink(x) {
+  EidCYCDocument = "";
+  dbCYCDocument.where(firebase.firestore.FieldPath.documentId(), "==", x)
+  .get().then((snapshot)=> {
+    snapshot.forEach(doc=> {
+      EidCYCDocument = doc.id;
+      sCYCgroup = doc.data().CYCgroup;
+      sCYCName = doc.data().CYCName;
+      sCYCLinkURL = doc.data().CYCLinkURL;
+      sCYCRead = doc.data().CYCRead;
+      UpdateView();
+    });
+  });
+}
+
+
+
+var dateString = "";
+function UpdateView() {
+  NewDate();
+  if(EidCYCDocument!="") {
+    dbCYCDocument.doc(EidCYCDocument).update({
+      CYCRead : parseFloat(sCYCRead+1)
+    });
+    dbCYCLog.add({
+      LineID : sessionStorage.getItem("LineID"),
+      EmpID : sessionStorage.getItem("EmpID"),
+      EmpName : sessionStorage.getItem("EmpName"),
+      CYCgroup : sCYCgroup,
+      CYCName : sCYCName,
+      //CYCLinkURL : sCYCLinkURL,
+      DateClick : dateString
+    });
+    window.open(sCYCLinkURL);
+  }
+}
+
+
+
 function CloseAll() {
   document.getElementById('id01').style.display='none';
+}
+
+
+
+
+function NewDate() {
+  var today = new Date();
+  var day = today.getDate() + "";
+  var month = (today.getMonth() + 1) + "";
+  var year = today.getFullYear() + "";
+  var hour = today.getHours() + "";
+  var minutes = today.getMinutes() + "";
+  var seconds = today.getSeconds() + "";
+  var ampm = hour >= 12 ? 'PM' : 'AM';
+
+  day = checkZero(day);
+  month = checkZero(month);
+  year = checkZero(year);
+  hour = checkZero(hour);
+  minutes = checkZero(minutes);
+  seconds = checkZero(seconds);
+
+  dateString = day + "/" + month + "/" + year + " " + hour + ":" + minutes + ":" + seconds +" "+ ampm;
+  //alert(GetNewDate);
+  //console.log(day + "/" + month + "/" + year + " " + hour + ":" + minutes + ":" + seconds +" "+ ampm);
+}
+
+
+function checkZero(data){
+  if(data.length == 1){
+    data = "0" + data;
+  }
+  return data;
 }
