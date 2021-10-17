@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ttb Drive | รถแลกเงิน</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet"> 
+    <!-- https://fonts.google.com/ -->
+    <link rel="stylesheet" href="fontawesome/css/all.min.css"> <!-- https://fontawesome.com/ -->
+    <!--<link rel="stylesheet" href="css/magnific-popup.css"> -->
+    <link rel="stylesheet" href="css/ekachon.css"> 
+    <link rel="stylesheet" href="css/style.css"> 
+    <link rel="stylesheet" href="css/w3.css"> 
+    <link rel="stylesheet" href="css/templatemo-ocean-vibes.css">
+    <link rel="stylesheet" href="css/button.css"> 
+    <link rel="stylesheet" href="./css/index@.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<!--
+    <script src="https://static.line-scdn.net/liff/edge/versions/2.12.0/sdk.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
+  -->
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" style="background: #f68b1f;">
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#myPage" onclick="location.href='index.html'">ttb Drive | รถแลกเงิน</a>
+      </div>
+
+    </div>
+  </nav>
+
+  <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
+    <div class="clr" style="height: 40px;"></div>
+
+<div class="form_wrapper">
+  <div class="form_container">
+    <div class="title_container">
+      <h2>ttb Drive Registration</h2>
+    </div>
+    <div class="row clearfix">
+      <div class="">
+        <center>
+          <div><img src="./img/profile.png" class="add-profile"></div>
+          <div class="NameLine">Website</div>
+        </center>
+        <form style="margin-top:20px;">
+          <div class="input_field">
+            <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
+              <input type="text" name="name" placeholder="ชื่อ-นามสกุล" required />
+            </div>
+          </div>
+          <div class="input_field"> <span><i aria-hidden="true" class="fa fa-phone"></i></span>
+            <input type="text" name="phone" placeholder="Phone" required/>
+          </div>
+              <div class="input_field radio_option" required>
+              <input type="radio" name="radiogroup1" id="rd1">
+              <label for="rd1">เพศชาย</label>
+              <input type="radio" name="radiogroup1" id="rd2">
+              <label for="rd2">เพศหญิง</label>
+              </div>
+              <div class="input_field select_option">
+                <select>
+                  <option>สังกัดหน่วยงานของคุณ</option>
+                  <option>Option 1</option>
+                  <option>Option 2</option>
+                </select>
+                <div class="select_arrow"></div>
+              </div>
+            <div class="input_field checkbox_option">
+              <input type="checkbox" id="cb1" required>
+          <label for="cb1">ข้าพเจ้าจะไม่เปิดเผยข้อมูลต่อบุคคลภายนอก</label>
+            </div>
+            <div class="input_field checkbox_option">
+              <input type="checkbox" id="cb2" required>
+          <label for="cb2">ข้าพเจ้าจะปฏิบัติตามกฎและเงื่อนไขทุกประการ</label>
+            </div>
+          <input class="button" type="submit" value="ลงทะเบียน" />
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  </div>
+  <div class="clr"></div>
+  <div id="isLoggedIn" style="color:#f1f1f1;"></div>
+  <footer class="tm-footer">
+      <center><div style="font-weight: 600; color:#000;">LINE Retail Sociey</div></center>
+  </footer>
+
+
+
+
+  <div id="id01" class="w3-modal w3-animate-opacity" style="z-index: 20;">
+    <div class="w3-modal-content w3-card-4" style="background: #fff;">
+      <div class="w3-container" style="min-height:300px;padding:24px;width:100%;text-align:center;">
+          <div id="DisplayList"></div>
+          <div class="btn-t2" onclick="CloseAll()" style="margin-top:20px;">ปิดหน้าต่างนี้</div>
+          <div style="height: 15px;"></div>
+        </center>
+      </div>
+    </div>
+    <div style="height:20px;"></div>
+  </div>
+
+
+    <!--<script src="js/getlogin.js"></script>-->
+<!--
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/session.js"></script>
+    <script src="js/cyc.js"></script>
+-->
+
+</body>
+</html>
