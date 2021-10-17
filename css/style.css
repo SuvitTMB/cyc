@@ -1,5 +1,5 @@
   body {
-    font: 400 15px ekachon-regular, sans-serif;
+    font: 400 12px ekachon-regular, sans-serif;
     line-height: 1.8;
     color: #818181;
   }
@@ -114,7 +114,7 @@
   .navbar {
     margin-bottom: 0;
     /*background-color: #f4511e;*/
-    background-color: #0056ff;
+    background-color: #0056ff !important;
     z-index: 9999;
     border: 0;
     font-size: 12px !important;
@@ -371,6 +371,13 @@ box-shadow: -1px 4px 11px -11px rgba(178,175,175,0.75);
 }
 .profile-user {
   position: relative; width:130px; height:130px; margin:auto; 
+}
+.add-profile {
+width:90px;height: 90px;border: 5px solid #0056ff; position: relative;
+box-shadow: -1px 4px 11px -11px rgba(178,175,175,0.75);
+-webkit-box-shadow: -1px 4px 11px -11px rgba(178,175,175,0.75);
+-moz-box-shadow: -1px 4px 11px -11px rgba(178,175,175,0.75);
+
 }
 .profile-user1 {
   position: relative; width:150px; height:150px; margin:auto; 
@@ -897,3 +904,6 @@ box-shadow: 0px 10px 13px -7px #000000, 5px 5px 10px 5px rgba(241,241,241,0);
 .box-item:hover {
   background: #0056ff; cursor: pointer; 
 }
+
+
+
