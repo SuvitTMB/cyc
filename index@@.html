@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="./css/button.css"> 
     <link rel="stylesheet" href="./css/index@.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>-->
     <script src="https://static.line-scdn.net/liff/edge/versions/2.12.0/sdk.js"></script>
 <!--
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -103,7 +103,7 @@
                   <input type="number" class="form-control" id="txtEmpPhone" placeholder="หมายเลขโทรศัพท์" required/>
                 </div>
                 <div class="input_field select_option">
-                  <select id="txtGroup" class="form-control" style="font: 400 12px ekachon-regular, sans-serif;" required/>
+                  <select id="txtGroup" class="form-control" style="font: 400 12px ekachon-regular !important;" required/>
                     <option></option>
                     <option value="RH1">สำนักงานภาคธุรกิจสาขา 1</option>
                     <option value="RH2">สำนักงานภาคธุรกิจสาขา 2</option>
@@ -114,13 +114,13 @@
                     <option value="RH7">สำนักงานภาคธุรกิจสาขา 7</option>
                     <option value="BBD">พนักงานในสังกัด BBD</option>
                     <option value="RASC">พนักงานในสังกัด RASC</option>
-                    <option value="COL">พนักงานในสังกัด COL</option>
+                    <option value="CALO">พนักงานในสังกัด CALO</option>
                     <option value="OTHER">พนักงานในสังกัดอื่นๆ</option>
                   </select>
                   <div class="select_arrow"></div>
                 </div>
                 <div class="input_field checkbox_option">
-                  <input type="checkbox" id="cb1" name="cb1" checked required>
+                  <input type="checkbox" id="cb1" name="cb1" required>
                   <label for="cb1">ข้าพเจ้าเป็นพนักงานของ ttb bank</label>
                 </div>
                 <div class="input_field checkbox_option">
@@ -217,7 +217,7 @@
 
 
   <div class="clr"></div>
-  <div id="isLoggedIn" style="color:#00000;"></div>
+  <div id="isLoggedIn" style="color:#f68b1f;"></div>
   <footer class="tm-footer">
       <center><div style="font-weight: 600; color:#000;">@ttb Drive | รถแลกเงิน</div></center>
   </footer>
@@ -243,8 +243,6 @@
     <script src="js/cyc.js"></script>
 <script src="js/session.js"></script>
 -->
-<script src="./js/index@@.js"></script>
-<script src='https://use.fontawesome.com/4ecc3dbb0b.js'></script>
 
 <script type="text/javascript">
   async function main() {
@@ -260,12 +258,6 @@
 
   async function getUserProfile() {
     const profile = await liff.getProfile();
-    //document.getElementById("pictureUrl").src = profile.pictureUrl;
-    //document.getElementById("pictureUrl1").src = profile.pictureUrl;
-    //document.getElementById("userId").append(profile.userId);
-    //document.getElementById("displayName").append(profile.displayName);
-    //document.getElementById("displayName1").append(profile.displayName);
-    //sessionStorage.setItem("LineLogin", profile.userId);
     sessionStorage.setItem("LineID", profile.userId);
     sessionStorage.setItem("LineName", profile.displayName);
     sessionStorage.setItem("LinePicture", profile.pictureUrl);
@@ -280,8 +272,9 @@
       external: true     
     })
   }
-
-
 </script>
+<script src="./js/index@@.js"></script>
+<script src='https://use.fontawesome.com/4ecc3dbb0b.js'></script>
+
 </body>
 </html>
