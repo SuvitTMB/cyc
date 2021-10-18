@@ -69,7 +69,7 @@ body {
   margin-bottom: 15px;
   -webkit-animation: bounce 0.6s ease-out;
   animation: bounce 0.6s ease-out;
-  text-align: left  !important;
+  text-align: left !important;
 }
 .form_wrapper .input_field > span {
   position: absolute;
@@ -87,7 +87,7 @@ body {
 .form_wrapper .textarea_field > span > i {
   padding-top: 10px;
 }
-.form_wrapper input[type=text], .form_wrapper input[type=email], .form_wrapper input[type=password] {
+.form_wrapper input[type=text], .form_wrapper input[type=number], .form_wrapper input[type=email], .form_wrapper input[type=password] {
   font: 400 12px ekachon-regular, sans-serif;
   width: 100%;
   padding: 8px 10px 9px 35px;
@@ -158,13 +158,14 @@ body {
   text-align: left;
   width: 15px !important;
   height: 15px !important;
-  margin-right: 0.5em;
+  margin-right: 12px;
   vertical-align: -2px;
   border: 2px solid #cccccc;
   padding: 0.12em;
   background-color: transparent;
   background-clip: content-box;
   transition: all 0.2s ease;
+  margin-left:20px;
 }
 .checkbox_option label:after {
   border-right: 2px solid #000000;
@@ -193,6 +194,7 @@ body {
   width: 7px;
   height: 20px;
   border-color: #0056ff;
+  margin-left:20px;
 }
 
 .radio_option label {
@@ -411,5 +413,5 @@ body {
   }
 }
 .title-head {
-  font-color:#0056ff; font-weight: 600; font-size: 15px;
+  font-color:#0056ff !important; font-weight: 600; font-size: 15px;
 }
