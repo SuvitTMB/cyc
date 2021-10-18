@@ -1,3 +1,11 @@
+var stxtEmpID = "";
+var stxtEmpName = "";
+var stxtEmpPhone = "";
+var stxtGroup = "";
+var scb1 = "";
+var scb2 = "";
+var scb3 = "";
+
 
 
 
@@ -8,30 +16,45 @@ $(document).ready(function () {
   str += '<div><img src="'+ sessionStorage.getItem("LinePicture") +'" class="add-profile"></div>';
   str += '<div class="NameLine">'+ sessionStorage.getItem("LineName")+'</div>';
   $("#MyProfile").html(str);  
+  main();
   //alert(sessionStorage.getItem("LineID"));
   //Connect_DB();
 });
 
 
 
-
-function CheckProfile() {
-  document.getElementById('myRegister').style.display='none';
-  document.getElementById('myTimer').style.display='block';
+async function main() {
+  await liff.init({ liffId: "1655966947-YLaLJK8V" });
+  document.getElementById("isLoggedIn").append(liff.isLoggedIn());
+  if(liff.isLoggedIn()) {
+    getUserProfile();
+  } else {
+    liff.login();
+  }
 }
+
+
+async function getUserProfile() {
+  const profile = await liff.getProfile();
+  sessionStorage.setItem("LineID", profile.userId);
+  sessionStorage.setItem("LineName", profile.displayName);
+  sessionStorage.setItem("LinePicture", profile.pictureUrl);
+  //alert(profile.userId);
+  CheckData();
+}
+
+
+function openWindow() {
+  liff.openWindow({
+    url: "https://line.me",
+    external: true     
+  })
+}
+
 
 function CheckData() {
-  document.getElementById('myRegister').style.display='block';
-  document.getElementById('myTimer').style.display='none';
+  alert("Check Data");
 }
-
-  var stxtEmpID = "";
-  var stxtEmpName = "";
-  var stxtEmpPhone = "";
-  var stxtGroup = "";
-  var scb1 = "";
-  var scb2 = "";
-  var scb3 = "";
 
 
 function ClickSaveProfile() {
