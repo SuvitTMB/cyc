@@ -181,20 +181,12 @@ function ClickSaveProfile() {
 
 function SaveData() {
   NewDate();
-  /*
-  document.getElementById("txtEmpID").value = stxtEmpID;
-  document.getElementById("txtEmpName").value = stxtEmpName;
-  document.getElementById("txtEmpPhone").value = stxtEmpPhone;
-  document.getElementById("txtEmpGroup").value = stxtEmpGroup;
-  */
-  //alert(document.getElementById("txtEmpID").value);
-  //if(EidCYCProfile!="") {
-
   if(EidCYCProfile=="") {
     dbCYCProfile.add({
       LineID : sessionStorage.getItem("LineID"),
       LineName : sessionStorage.getItem("LineName"),
       LinePicture : sessionStorage.getItem("LinePicture"),
+      CYCStatus : 0;
       EmpID : document.getElementById("txtEmpID").value,
       EmpName : document.getElementById("txtEmpName").value,
       EmpPhone : document.getElementById("txtEmpPhone").value,
@@ -211,70 +203,12 @@ function SaveData() {
       EmpPhone : document.getElementById("txtEmpPhone").value,
       EmpGroup : document.getElementById("txtEmpGroup").value,
       DateRegister : dateString
-    });
-  }
-  document.getElementById('myRegister').style.display='none';
-  document.getElementById('myTimer').style.display='block';
-}
-
-
-
-
-/*
-    dbCYCProfile.doc(EidCYCProfile).update({
-      EmpID : document.getElementById("txtEmpID").value
-      //DateRegister : dateString
-    });
-
-    dbCYCProfile.doc(EidCYCProfile).update({
-      LineID : sessionStorage.getItem("LineID"),
-      LineName : sessionStorage.getItem("LineName"),
-      LinePicture : sessionStorage.getItem("LinePicture"),
-      CYCStatus : 0,
-      EmpID : stxtEmpID,
-      EmpName : stxtEmpName,
-      EmPhone: stxtEmpPhone,
-      EmpName : stxtEmpName,
-      EmpGroup : stxtEmpGroup,
-      Confirm_cb1 : scb1,
-      Confirm_cb2 : scb1,
-      Confirm_cb3 : scb1,
-      DateRegister : sDateRegister,
-      DateConfirm : dateString
-      EmpID : stxtEmpID
-    });
-*/
-
-/*
-  } else {
-    dbCYCProfile.add({
-      LineID : sessionStorage.getItem("LineID"),
-
-      LineName : sessionStorage.getItem("LineName"),
-      LinePicture : sessionStorage.getItem("LinePicture"),
-      CYCStatus : 0,
-      EmpID : stxtEmpID,
-      EmpName : stxtEmpName,
-      EmPhone: stxtEmpPhone,
-      EmpName : stxtEmpName,
-      EmpGroup : stxtEmpGroup,
-      Confirm_cb1 : scb1,
-      Confirm_cb2 : scb1,
-      Confirm_cb3 : scb1,
-      DateRegister : sDateRegister,
-      DateConfirm : dateString
     });
   }
   CheckData();
-*/
-/*
-  document.getElementById("txtEmpID").value = stxtEmpID;
-  document.getElementById("txtEmpName").value = stxtEmpName;
-  document.getElementById("txtEmpPhone").value = stxtEmpPhone;
-  document.getElementById("txtEmpGroup").value = stxtEmpGroup;
   document.getElementById('myRegister').style.display='none';
   document.getElementById('myTimer').style.display='block';
-*/
+}
 
 
 function NewDate() {
