@@ -1,3 +1,4 @@
+if(sessionStorage.getItem("CYCStatus")!=1) { window.location.href = 'index.html'; }
 var dbCYCDocument = "";
 var dbCYCLog = "";
 var EidCYCDocument = "";
