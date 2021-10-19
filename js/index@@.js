@@ -16,16 +16,14 @@ const x = document.querySelectorAll(`div.com[min="${i}"]`);
 
 
 $(document).ready(function () {
+  var str = "";
  // main();
   //document.getElementById('myRegister').style.display='block';
   //document.getElementById('myTimer').style.display='none';
-
-  var str = "";
+  main()
   str += '<div><img src="'+ sessionStorage.getItem("LinePicture") +'" class="add-profile"></div>';
   str += '<div class="NameLine">'+ sessionStorage.getItem("LineName")+'</div>';
   $("#MyProfile").html(str);  
-  Connect_DB();
-  CheckData();
   //alert(sessionStorage.getItem("LineID"));
   //Connect_DB();
 });
@@ -48,12 +46,13 @@ async function getUserProfile() {
   sessionStorage.setItem("LineID", profile.userId);
   sessionStorage.setItem("LineName", profile.displayName);
   sessionStorage.setItem("LinePicture", profile.pictureUrl);
+  Connect_DB();
+  CheckData();
   //var str = "";
   //str += '<div><img src="'+ sessionStorage.getItem("LinePicture") +'" class="add-profile"></div>';
   //str += '<div class="NameLine">'+ sessionStorage.getItem("LineName")+'</div>';
   //$("#MyProfile").html(str);  
   //alert(profile.userId);
-  CheckData();
 }
 
 
