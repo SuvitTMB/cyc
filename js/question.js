@@ -1,3 +1,4 @@
+if(sessionStorage.getItem("CYCStatus")!=1) { window.location.href = 'index.html'; }
 //var sReportDate = "05/08/2021";
 var sGroupReport = "CYC";
 var sReportDate = "";
