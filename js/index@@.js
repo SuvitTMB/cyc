@@ -16,7 +16,6 @@ const x = document.querySelectorAll(`div.com[min="${i}"]`);
 
 
 $(document).ready(function () {
-  var str = "";
  // main();
   //document.getElementById('myRegister').style.display='block';
   //document.getElementById('myTimer').style.display='none';
@@ -42,6 +41,7 @@ async function main() {
 
 
 async function getUserProfile() {
+  var str = "";
   const profile = await liff.getProfile();
   sessionStorage.setItem("LineID", profile.userId);
   sessionStorage.setItem("LineName", profile.displayName);
