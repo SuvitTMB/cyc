@@ -186,7 +186,7 @@ function SaveData() {
       LineID : sessionStorage.getItem("LineID"),
       LineName : sessionStorage.getItem("LineName"),
       LinePicture : sessionStorage.getItem("LinePicture"),
-      CYCStatus : 0;
+      CYCStatus : 0,
       EmpID : document.getElementById("txtEmpID").value,
       EmpName : document.getElementById("txtEmpName").value,
       EmpPhone : document.getElementById("txtEmpPhone").value,
