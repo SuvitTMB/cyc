@@ -173,7 +173,7 @@ function ClickSaveProfile() {
   if(stxtEmpGroup !== null && stxtEmpGroup !== '') { sCheckBottom = sCheckBottom+1; }
 
   if(sCheckBottom==4) {
-    alert(stxtEmpID+"\n"+stxtEmpName+"\n"+stxtEmpPhone+"\n"+stxtEmpGroup);
+    //alert(stxtEmpID+"\n"+stxtEmpName+"\n"+stxtEmpPhone+"\n"+stxtEmpGroup);
     SaveData();
   }
 }
