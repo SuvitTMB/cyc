@@ -25,11 +25,25 @@
     <link rel="stylesheet" href="./css/button.css"> 
     <link rel="stylesheet" href="./css/index@.css">
     <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>-->
+
+<!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+-->
+
     <script src="https://static.line-scdn.net/liff/edge/versions/2.12.0/sdk.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
+
+
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/css/bootstrapValidator.min.css" rel="stylesheet" />
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+
+
     <script type="text/javascript">
     (function() {
       'use strict';
@@ -77,7 +91,7 @@
               <div class="form-row">
                 <div class="input_field" style="width:100% !important;"> 
                   <span><i aria-hidden="true" class="fa fa-lock"></i></span>
-                  <input type="number" class="form-control" id="txtEmpID" placeholder="รหัสพนักงาน" required />
+                  <input required type="number" class="form-control" id="txtEmpID" placeholder="รหัสพนักงาน"/>
                   <div class="valid-feedback"></div>
                 </div>
                 <div class="input_field" style="width:100% !important;"> 
@@ -89,7 +103,7 @@
                   <input type="number" class="form-control" id="txtEmpPhone" placeholder="หมายเลขโทรศัพท์" required/>
                 </div>
                 <div class="input_field select_option">
-                  <select id="txtGroup" class="form-control" style="font: 400 12px ekachon-regular !important;" required/>
+                  <select id="txtEmpGroup" class="form-control" style="font: 400 12px ekachon-regular !important;" required/>
                     <option></option>
                     <option value="RH1">สำนักงานภาคธุรกิจสาขา 1</option>
                     <option value="RH2">สำนักงานภาคธุรกิจสาขา 2</option>
@@ -99,12 +113,14 @@
                     <option value="RH6">สำนักงานภาคธุรกิจสาขา 6</option>
                     <option value="RH7">สำนักงานภาคธุรกิจสาขา 7</option>
                     <option value="BBD">พนักงานในสังกัด BBD</option>
-                    <option value="RASC">พนักงานในสังกัด RASC</option>
-                    <option value="CALO">พนักงานในสังกัด CALO</option>
-                    <option value="OTHER">พนักงานในสังกัดอื่นๆ</option>
+                    <option value="RASC">พนักงานในกลุ่ม RASC</option>
+                    <option value="CALO">พนักงานในกลุ่ม CALO</option>
+                    <option value="CRBO">พนักงานในกลุ่ม CRBO</option>
+                    <option value="OTHER">พนักงานในกลุ่มอื่นๆ</option>
                   </select>
                   <div class="select_arrow"></div>
                 </div>
+                <!--
                 <div class="input_field checkbox_option">
                   <input type="checkbox" id="cb1" name="cb1" required>
                   <label for="cb1">ข้าพเจ้าเป็นพนักงานของ ttb bank</label>
@@ -116,88 +132,43 @@
                 <div class="input_field checkbox_option">
                   <input type="checkbox" id="cb3" name="cb3" required>
                   <label for="cb3">ข้าพเจ้าจะปฏิบัติตามกฎและเงื่อนไขทุกประการ</label>
-                </div>
-              </div>
-              <button class="btn-t2" type="submit" onclick="ClickSaveProfile()">ลงทะเบียน</button>
-              <!--<button class="btn btn-primary btn-sm" type="submit">Submit form</button>-->
-
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-<!--
-            <form style="margin-top:20px;">
-              <div class="input_field">
-                <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
-                  <input type="text" name="fname" placeholder="ชื่อ-นามสกุล" required />
-                  <p id="fname_req" style="color:#ff0000;"></p>
-                </div>
-              </div>
-              <div class="input_field"> <span><i aria-hidden="true" class="fa fa-phone"></i></span>
-                <input type="text" name="phone" placeholder="Phone" required/>
-              </div>
-              <div class="input_field radio_option" required>
-                <center>
-                  <input type="radio" name="radiogroup1" id="rd1">
-                  <label for="rd1">เพศชาย</label>
-                  <input type="radio" name="radiogroup1" id="rd2">
-                  <label for="rd2">เพศหญิง</label>
-                </center>
-              </div>
-              <div class="input_field select_option">
-                <select style="font: 400 12px ekachon-regular, sans-serif;">
-                  <option>สังกัดหน่วยงานของคุณ</option>
-                  <option>Option 1</option>
-                  <option>Option 2</option>
-                </select>
-                <div class="select_arrow"></div>
+                </div>submit
+                -->
               </div>
               <center>
-              <div class="input_field checkbox_option">
-                <input type="checkbox" id="cb1" required>
-                <label for="cb1">ข้าพเจ้าเป็นพนักงานของ ttb bank</label>
+              <div style="font-weight: 600; color:#ff0000; padding:20px;width:100% !important;">
+                ขอสงวนสิทธิ์สำหรับผู้ที่มีส่วนเกี่ยวข้องเท่านั้น
               </div>
-              <div class="input_field checkbox_option">
-                <input type="checkbox" id="cb2" required>
-                <label for="cb2">ข้าพเจ้าจะไม่เปิดเผยข้อมูลต่อบุคคลภายนอก</label>
-              </div>
-              <div class="input_field checkbox_option">
-                <input type="checkbox" id="cb3" required>
-                <label for="cb3">ข้าพเจ้าจะปฏิบัติตามกฎและเงื่อนไขทุกประการ</label>
-              </div>
-              <div class="btn-t2" onclick="ClickSaveProfile()">ลงทะเบียน</div>
               </center>
-              <input class="button" type="submit" value="ลงทะเบียน" onclick="CheckProfile()"/>
+              <!--<button class="btn-t1" onclick="ClickSaveProfile()">ลงทะเบียน</button>-->
+              <div class="btn-t1" onclick="ClickSaveProfile()" type="submit">ลงทะเบียน</div>
             </form>
           </div>
         </div>
       </div>
     </div>
   </div>
--->
+
 
   <div id="myTimer" class="carousel slide text-center" data-ride="carousel" style="display: none;">
-    <div class="clr" style="height: 60px;"></div>
+    <div class="clr"></div>
     <div class="form_wrapper">
       <div class="form_container">
         <div class="title_container">
           <div class="title-head">อยู่ระหว่างการตรวจสอบข้อมูล</div>
         </div>
-        <div class="row clearfix">
+        <div class="clearfix" style="margin:10px 0 20px 0;">
+          <div id="MyWating"></div>
+          <!--
           <center>
-            <!--
-            <div><img src="./img/profile.png" class="add-profile"></div>
-            <div class="NameLine">Website</div>
-            -->
             <div><img src="./img/timer.gif" width="250px;"></div>
             <div>
-              <div class="text-waiting">ผู้ดูแลระบบกำลังตรวจสอบข้อมูลของท่านอยู่<br>ในขั้นตอนนี้จะใช้เวลาในการดำเนินการ<br>ประมาณ 24 ชั่วโมง<br>ในระหว่างนี้ขอให้ท่านตรวจสอบ<br>ข้อมูลของท่านให้ถูกต้อง</div>
-              <input class="button" type="submit" value="คลิกเพื่อตรวจสอบข้อมูล" onclick="CheckData()"/>
-              <div class="btn-t2" onclick="CheckData()">คลิกเพื่อตรวจสอบข้อมูล</div>
+              <div class="text-waiting">เรียน คุณธนาคาร แห่งประเทศไทย<br>ขณะนี้เรากำลังตรวจสอบข้อมูลการลงทะเบียนของคุณ
+                <br>ซึ่งในขั้นตอนนี้จะใช้เวลาในการดำเนินการ<br>ภายใน 24 ชั่วโมงในระหว่างนี้ขอให้ท่านตรวจสอบ<br>ข้อมูลของท่านให้ถูกต้อง</div>
+              <div class="btn-t1" onclick="EditData()">คลิกเพื่อตรวจสอบข้อมูล</div>
             </div>
           </center>
+          -->
         </div>
       </div>
     </div>
@@ -262,7 +233,9 @@
     })
   }
 </script>
+<script src="./js/index@@.js"></script>
 -->
+<script src="./js/session.js"></script>
 <script src="./js/index@@.js"></script>
 <script src='https://use.fontawesome.com/4ecc3dbb0b.js'></script>
 
