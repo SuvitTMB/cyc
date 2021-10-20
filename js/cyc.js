@@ -38,9 +38,11 @@ function OpenBook(x) {
   if(x=="G1") { sHead = "หลักเกณฑ์สินเชื่อเงื่อนไขรถยนต์";
   } if(x=="G2") { sHead = "ขั้นตอนการคีย์งานลงในระบบ";
   } if(x=="G3") { sHead = "การประเมินรายได้";
-  } if(x=="G4") { sHead = "แบบประเมินสภาพรถยนต์มือ 2";
-  } if(x=="G5") { sHead = "ระบบ AS400";
-  } if(x=="G6") { sHead = "Contact Point";
+  } if(x=="G4") { sHead = "ขั้นตอนการแนบเอกสาร";
+  } if(x=="G5") { sHead = "แบบประเมินสภาพรถยนต์มือสอง";
+  } if(x=="G6") { sHead = "ระบบ AS400";
+  } if(x=="G7") { sHead = "Contact Point";
+  } if(x=="G8") { sHead = "เอกสารอื่น ๆ";
   }
 
   str += '<div class="header-line" style="margin-top:10px; margin-bottom: 20px; color:#0056ff;font-weight: 600;font-size: 13px;">'+ sHead +'</div>';
